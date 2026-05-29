@@ -1,0 +1,228 @@
+import { PrismaService } from '../prisma/prisma.service';
+export declare class ListingsService {
+    private prisma;
+    constructor(prisma: PrismaService);
+    create(sellerId: string, data: any): Promise<{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        title: string;
+        make: string;
+        model: string;
+        year: number;
+        kmDriven: number;
+        location: string;
+        basePrice: number;
+        description: string;
+        photos: string[];
+        rcDocument: string | null;
+        listingFeePaid: boolean;
+        listingFeeTxnId: string | null;
+        status: import(".prisma/client").$Enums.ListingStatus;
+        sellerId: string;
+    }>;
+    getAll(filters?: any): Promise<({
+        auction: {
+            status: import(".prisma/client").$Enums.AuctionStatus;
+            scheduledStart: Date;
+            scheduledEnd: Date;
+        };
+        seller: {
+            fullName: string;
+            id: string;
+        };
+    } & {
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        title: string;
+        make: string;
+        model: string;
+        year: number;
+        kmDriven: number;
+        location: string;
+        basePrice: number;
+        description: string;
+        photos: string[];
+        rcDocument: string | null;
+        listingFeePaid: boolean;
+        listingFeeTxnId: string | null;
+        status: import(".prisma/client").$Enums.ListingStatus;
+        sellerId: string;
+    })[]>;
+    getOne(id: string): Promise<{
+        auction: {
+            id: string;
+            createdAt: Date;
+            status: import(".prisma/client").$Enums.AuctionStatus;
+            listingId: string;
+            scheduledStart: Date;
+            scheduledEnd: Date;
+            actualStart: Date | null;
+            actualEnd: Date | null;
+            reserveMet: boolean;
+            winningBidId: string | null;
+            winningBidderId: string | null;
+            finalPrice: number | null;
+            extensionCount: number;
+        };
+        seller: {
+            fullName: string;
+            id: string;
+            createdAt: Date;
+        };
+    } & {
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        title: string;
+        make: string;
+        model: string;
+        year: number;
+        kmDriven: number;
+        location: string;
+        basePrice: number;
+        description: string;
+        photos: string[];
+        rcDocument: string | null;
+        listingFeePaid: boolean;
+        listingFeeTxnId: string | null;
+        status: import(".prisma/client").$Enums.ListingStatus;
+        sellerId: string;
+    }>;
+    getMyListings(sellerId: string): Promise<({
+        auction: {
+            id: string;
+            createdAt: Date;
+            status: import(".prisma/client").$Enums.AuctionStatus;
+            listingId: string;
+            scheduledStart: Date;
+            scheduledEnd: Date;
+            actualStart: Date | null;
+            actualEnd: Date | null;
+            reserveMet: boolean;
+            winningBidId: string | null;
+            winningBidderId: string | null;
+            finalPrice: number | null;
+            extensionCount: number;
+        };
+    } & {
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        title: string;
+        make: string;
+        model: string;
+        year: number;
+        kmDriven: number;
+        location: string;
+        basePrice: number;
+        description: string;
+        photos: string[];
+        rcDocument: string | null;
+        listingFeePaid: boolean;
+        listingFeeTxnId: string | null;
+        status: import(".prisma/client").$Enums.ListingStatus;
+        sellerId: string;
+    })[]>;
+    update(id: string, sellerId: string, data: any): Promise<{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        title: string;
+        make: string;
+        model: string;
+        year: number;
+        kmDriven: number;
+        location: string;
+        basePrice: number;
+        description: string;
+        photos: string[];
+        rcDocument: string | null;
+        listingFeePaid: boolean;
+        listingFeeTxnId: string | null;
+        status: import(".prisma/client").$Enums.ListingStatus;
+        sellerId: string;
+    }>;
+    addPhotos(id: string, sellerId: string, photoUrls: string[]): Promise<{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        title: string;
+        make: string;
+        model: string;
+        year: number;
+        kmDriven: number;
+        location: string;
+        basePrice: number;
+        description: string;
+        photos: string[];
+        rcDocument: string | null;
+        listingFeePaid: boolean;
+        listingFeeTxnId: string | null;
+        status: import(".prisma/client").$Enums.ListingStatus;
+        sellerId: string;
+    }>;
+    markListingFeePaid(id: string, txnId: string): Promise<{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        title: string;
+        make: string;
+        model: string;
+        year: number;
+        kmDriven: number;
+        location: string;
+        basePrice: number;
+        description: string;
+        photos: string[];
+        rcDocument: string | null;
+        listingFeePaid: boolean;
+        listingFeeTxnId: string | null;
+        status: import(".prisma/client").$Enums.ListingStatus;
+        sellerId: string;
+    }>;
+    getPendingListings(): Promise<({
+        seller: {
+            fullName: string;
+            phone: string;
+        };
+    } & {
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        title: string;
+        make: string;
+        model: string;
+        year: number;
+        kmDriven: number;
+        location: string;
+        basePrice: number;
+        description: string;
+        photos: string[];
+        rcDocument: string | null;
+        listingFeePaid: boolean;
+        listingFeeTxnId: string | null;
+        status: import(".prisma/client").$Enums.ListingStatus;
+        sellerId: string;
+    })[]>;
+    approveListing(id: string, approved: boolean): Promise<{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        title: string;
+        make: string;
+        model: string;
+        year: number;
+        kmDriven: number;
+        location: string;
+        basePrice: number;
+        description: string;
+        photos: string[];
+        rcDocument: string | null;
+        listingFeePaid: boolean;
+        listingFeeTxnId: string | null;
+        status: import(".prisma/client").$Enums.ListingStatus;
+        sellerId: string;
+    }>;
+}
