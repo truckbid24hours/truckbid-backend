@@ -2,7 +2,7 @@ services:
   - type: web
     name: truckbid-backend
     runtime: node
-    buildCommand: npm install --legacy-peer-deps && npx prisma generate && npm run build
+    buildCommand: npm install --legacy-peer-deps --include=dev && npx prisma generate && npx nest build
     startCommand: node dist/main
     envVars:
       - key: NODE_ENV
